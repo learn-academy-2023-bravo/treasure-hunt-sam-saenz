@@ -15,10 +15,31 @@ const App = () => {
     "?"
   ])
 
+  const generateBombLocation = () => {
+    let bombStart = treasureLocation
+    while(bombStart === treasureLocation) {
+      bombStart = Math.floor(Math.random() * board.length)
+    }
+    return bombStart
+  }
+
+  const [treasureLocation, setTreasureLocation] = useState(Math.floor(Math.random() * board.length))
+
+  const [bombLocation, setBombLocation] = useState(generateBombLocation)
+
   const handleGameplay = (clickedSquare) => {
     let updateBoard = [...board]
-    updateBoard[clickedSquare] = "🌴"
-    setBoard(updateBoard)
+    if(clickedSquare === treasureLocation) {
+      updateBoard[clickedSquare] = "👑"
+      setBoard(updateBoard)
+    } else if(clickedSquare === bombLocation) {
+      updateBoard[clickedSquare] = "💣"
+      setBoard(updateBoard)
+    } else {
+      updateBoard[clickedSquare] = "🌴"
+      setBoard(updateBoard)
+    }
+    
   }
 
   return (

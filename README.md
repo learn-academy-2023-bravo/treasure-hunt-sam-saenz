@@ -30,9 +30,14 @@ As a developer, you are tasked with creating a treasure hunt game. The user will
     - Updated value at a clicked square to be a tree
 
 - As a user, if I select the winning square the question mark will become a treasure emoji and if I select the losing square the question mark will become a bomb emoji.
-    - 
+    - Branch named: treasure-bomb
+    - Made a new state for both treasureLocation and bombLocation.
+    - Added logic to the handleGameplay function for clicking the treasure and bomb squares.
+    - STRETCH GOAL: In order to make sure that the bomb would not be generated in the same location as the treasure, I created a new function that uses a while loop to keep generating bomb locations until it is different from the treasure. This function is called by the bombLocation state function.
 
 - As a user, I can click on a “Play Again” button that will restart the game.
+
+
 - As a user, I can see a counter that shows how many guesses I have left. The counter starts at five and decrements one every time I click on a square that is not the treasure nor the bomb.
 - As a user, I can see a message informing me that I won the game if I select the square that contains the treasure.
 - As a user, I can see a message informing me that I lost the game if I select the square that contains the bomb.
