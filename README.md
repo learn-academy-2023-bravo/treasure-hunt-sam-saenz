@@ -36,7 +36,10 @@ As a developer, you are tasked with creating a treasure hunt game. The user will
     - STRETCH GOAL: In order to make sure that the bomb would not be generated in the same location as the treasure, I created a new function that uses a while loop to keep generating bomb locations until it is different from the treasure. This function is called by the bombLocation state function.
 
 - As a user, I can click on a “Play Again” button that will restart the game.
-
+    - Branch called restart-game
+    - Added function generateTreasureLocation as a reusable way to generate the location of the treasure.
+    - Added function handleRestart that regenerates the entire game, using generateTreasureLocation and generateBombLocation along with the set functions for both of those states.
+    - Attatched that function to a button using an onClick.
 
 - As a user, I can see a counter that shows how many guesses I have left. The counter starts at five and decrements one every time I click on a square that is not the treasure nor the bomb.
 - As a user, I can see a message informing me that I won the game if I select the square that contains the treasure.
