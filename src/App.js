@@ -15,6 +15,10 @@ const App = () => {
     "?"
   ])
 
+  const generateTreasureLocation = () => {
+    return Math.floor(Math.random() * board.length)
+  }
+
   const generateBombLocation = () => {
     let bombStart = treasureLocation
     while(bombStart === treasureLocation) {
@@ -23,9 +27,16 @@ const App = () => {
     return bombStart
   }
 
-  const [treasureLocation, setTreasureLocation] = useState(Math.floor(Math.random() * board.length))
+  const [treasureLocation, setTreasureLocation] = useState(generateTreasureLocation)
 
   const [bombLocation, setBombLocation] = useState(generateBombLocation)
+
+  const handleRestart = () => {
+    let updateBoard = board.map(value => "?")
+    setTreasureLocation(Math.floor(Math.random() * board.length))
+    setBombLocation(generateBombLocation)
+    setBoard(updateBoard)
+  }
 
   const handleGameplay = (clickedSquare) => {
     let updateBoard = [...board]
@@ -57,6 +68,7 @@ const App = () => {
         })
       }
       </div>
+      <button className="restart-button" onClick={handleRestart}>Reset Game</button>
     </>
   )
 }
